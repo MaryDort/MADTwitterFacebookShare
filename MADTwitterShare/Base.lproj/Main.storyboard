@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXF-Fr-Bng">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="df1-oL-Zup">
+                                        <connections>
+                                            <action selector="shareButtonPressed:" destination="BYZ-38-t0r" id="RL8-aU-sF9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.43089535361842107" green="0.11251027960526316" blue="0.92377672697368418" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kdn-Jw-3fr">
+                                <rect key="frame" x="-4" y="44" width="328" height="524"/>
+                                <color key="backgroundColor" red="0.75950863486842102" green="0.74154502467105265" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eXF-Fr-Bng" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="6M8-TQ-UmH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eXF-Fr-Bng" secondAttribute="trailing" constant="-20" id="G8g-kf-qw2"/>
+                            <constraint firstItem="eXF-Fr-Bng" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Rcc-tM-Qj8"/>
+                            <constraint firstItem="Kdn-Jw-3fr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Rjt-ai-ONG"/>
+                            <constraint firstItem="Kdn-Jw-3fr" firstAttribute="top" secondItem="eXF-Fr-Bng" secondAttribute="bottom" id="a1c-cS-phF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kdn-Jw-3fr" secondAttribute="trailing" constant="-20" id="cfk-Yn-ig8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kdn-Jw-3fr" secondAttribute="bottom" id="fQ0-xX-qgh"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="twittTextView" destination="Kdn-Jw-3fr" id="dY2-dQ-A1b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="214" y="339"/>
+        </scene>
+    </scenes>
+</document>
