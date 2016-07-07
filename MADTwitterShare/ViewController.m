@@ -28,10 +28,9 @@
         [_twittTextView resignFirstResponder];
     }
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"Tweet your note" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"Post your note" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil];
-     UIAlertAction *tweetAction = [UIAlertAction actionWithTitle:@"Tweet" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-         
+    UIAlertAction *twitterAction = [UIAlertAction actionWithTitle:@"Post to Twitter" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
          if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
              SLComposeViewController *composeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
              
@@ -42,11 +41,22 @@
              }
              [self presentViewController:composeVC animated:YES completion:nil];
          } else {
-             [self alertMessage:@"You are not singed in to twitter"];
+             [self alertMessage:@"You are not singed in to Twitter"];
          }
-     }];
+    }];
+    UIAlertAction *facebookAction = [UIAlertAction actionWithTitle:@"Post to Facebook" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+            SLComposeViewController *composeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            
+            [composeVC setInitialText:_twittTextView.text];
+            [self presentViewController:composeVC animated:YES completion:nil];
+        } else {
+            [self alertMessage:@"You are not singed in to Facebook"];
+        }
+    }];
     
-    [alertController addAction:tweetAction];
+    [alertController addAction:twitterAction];
+    [alertController addAction:facebookAction];
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }
@@ -57,7 +67,7 @@
 }
 
 - (void)alertMessage:(NSString *)message {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"TwitterShare" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"SocialShare" message:message preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
     [self presentViewController:alertController animated:YES completion:nil];
