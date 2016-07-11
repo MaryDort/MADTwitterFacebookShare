@@ -54,9 +54,16 @@
             [self alertMessage:@"You are not singed in to Facebook"];
         }
     }];
+    UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"Post to ..." style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSArray *objectsToShare = [NSArray arrayWithObject:_twittTextView.text];
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+        
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }];
     
     [alertController addAction:twitterAction];
     [alertController addAction:facebookAction];
+    [alertController addAction:otherAction];
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }
