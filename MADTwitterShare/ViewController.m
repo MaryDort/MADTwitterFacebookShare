@@ -11,7 +11,7 @@
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextView *twittTextView;
+@property (weak, nonatomic) IBOutlet UITextView *postTextView;
 
 @end
 
@@ -24,8 +24,8 @@
 }
 
 - (IBAction)shareButtonPressed:(UIBarButtonItem *)sender {
-    if (_twittTextView.isFirstResponder) {
-        [_twittTextView resignFirstResponder];
+    if (_postTextView.isFirstResponder) {
+        [_postTextView resignFirstResponder];
     }
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"Post your note" preferredStyle:UIAlertControllerStyleAlert];
@@ -34,10 +34,10 @@
          if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
              SLComposeViewController *composeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
              
-             if (_twittTextView.text.length < 140) {
-                 [composeVC setInitialText:_twittTextView.text];
+             if (_postTextView.text.length < 140) {
+                 [composeVC setInitialText:_postTextView.text];
              } else {
-                 [composeVC setInitialText:[_twittTextView.text substringToIndex:140]];
+                 [composeVC setInitialText:[_postTextView.text substringToIndex:140]];
              }
              [self presentViewController:composeVC animated:YES completion:nil];
          } else {
@@ -48,14 +48,14 @@
         if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
             SLComposeViewController *composeVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
             
-            [composeVC setInitialText:_twittTextView.text];
+            [composeVC setInitialText:_postTextView.text];
             [self presentViewController:composeVC animated:YES completion:nil];
         } else {
             [self alertMessage:@"You are not singed in to Facebook"];
         }
     }];
     UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"Post to ..." style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        NSArray *objectsToShare = [NSArray arrayWithObject:_twittTextView.text];
+        NSArray *objectsToShare = [NSArray arrayWithObject:_postTextView.text];
         UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
         
         [self presentViewController:activityVC animated:YES completion:nil];
@@ -69,8 +69,8 @@
 }
 
 - (void)configureTextView {
-    _twittTextView.layer.cornerRadius = 20.f;
-    _twittTextView.layer.borderWidth = 2.f;
+    _postTextView.layer.cornerRadius = 20.f;
+    _postTextView.layer.borderWidth = 2.f;
 }
 
 - (void)alertMessage:(NSString *)message {

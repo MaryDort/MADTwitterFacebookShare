@@ -49,7 +49,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="twittTextView" destination="Kdn-Jw-3fr" id="dY2-dQ-A1b"/>
+                        <outlet property="postTextView" destination="Kdn-Jw-3fr" id="Jk7-gD-4XR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
